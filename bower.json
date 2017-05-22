@@ -1,0 +1,36 @@
+{
+  "name": "mxmz-site",
+  "version": "0.1.0",
+  "authors": [
+    "Maksim Luzik <maksim.luzik@gmail.com>"
+  ],
+  "description": "personal site",
+  "main": "index.html",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "personal",
+    "site"
+  ],
+  "license": "MIT",
+  "homepage": "maksimluzik.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "bootstrap": "~3.1.1",
+    "jquery-visible": "~1.1.0",
+    "less": "~2.1.2",
+    "jquery.localScroll": "~1.3.5",
+    "jquery-backstretch": "~2.0.4",
+    "jquery-parallax": "~1.1.3"
+  }
+}

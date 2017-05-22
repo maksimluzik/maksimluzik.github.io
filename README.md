@@ -1,2 +1,2 @@
 # maksimluzik.github.io
-Integration with Github + Facebook
+Maksim Luzik personal website

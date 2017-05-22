@@ -1,0 +1,19 @@
+{
+  "name": "maksimluzik.github.io",
+  "version": "1.0.0",
+  "description": "Maksim Luzik personal website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maksimluzik/maksimluzik.github.io.git"
+  },
+  "author": "Maksim Luzik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maksimluzik/maksimluzik.github.io/issues"
+  },
+  "homepage": "https://github.com/maksimluzik/maksimluzik.github.io#readme"
+}
