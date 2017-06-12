@@ -1,6 +1,11 @@
 # maksimluzik.github.io
 Maksim Luzik personal website
 
+How to develop locally?  
+Install `http-server` running `npm i http-server -g`  
+In the project folder run:  
+`http-server` and navigate to `localhost:8080`
+
 Addons/framework used  
 bootstrap  
 jquery  
