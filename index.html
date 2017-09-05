@@ -19,28 +19,42 @@
 
     <link href="/css/maksim.css" rel="stylesheet">
 
-    <meta name="keywords" content="maksim luzik, social, cv, personal page" />
-    <link rel="canonical" href="http://www.maksimluzik.com/" />
-    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="maksim luzik, social, cv, personal page"/>
+    <link rel="canonical" href="http://www.maksimluzik.com/"/>
+    <meta name="robots" content="index, follow"/>
 
     <!-- Facebook appID -->
-    <meta property="og:url" content="http://www.maksimluzik.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Maksim Luzik" />
-    <meta property="og:description" content="I get concerned, when design supersede usability. Unlike design, one person can not dictate usability. In the end, usability is achieved through users." />
-    <meta property="og:image" content="http://www.maksimluzik.com/images/maksim_profile.png" />
-    <meta property="fb:app_id" content="823058484426258" />
+    <meta property="og:url" content="http://www.maksimluzik.com/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Maksim Luzik"/>
+    <meta property="og:description"
+          content="I get concerned, when design supersede usability. Unlike design, one person can not dictate usability. In the end, usability is achieved through users."/>
+    <meta property="og:image" content="http://www.maksimluzik.com/images/maksim_profile.png"/>
+    <meta property="fb:app_id" content="823058484426258"/>
+
+    <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.css"
+    />
 </head>
 
-<body id="index" >
+<body id="index">
 
 <!-- Google Analytics -->
 <script>
     if (window.location.hostname === 'www.maksimluzik.com') {
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-12370404-10', 'auto');
         ga('send', 'pageview');
@@ -48,10 +62,11 @@
 </script>
 
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>(function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
+    js = d.createElement(s);
+    js.id = id;
     js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=823058484426258";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -95,8 +110,11 @@
             <div class="col-md-8 colored-box big-text" style="text-align: center;">
                 "Beauty is in the eye of the beholder"
                 <div class="normal-text">
-                    <p>I get concerned, when design supersede usability. Unlike design, one person can not dictate usability. In the end, usability is achieved through users.</p>
-                    <p>I am usability specialist and a software engineer with the focus on web applications and cloud architecture. I also like to immerse myself in the role of system administration, including networking and application scaling.</p>
+                    <p>I get concerned, when design supersede usability. Unlike design, one person can not dictate
+                        usability. In the end, usability is achieved through users.</p>
+                    <p>I am usability specialist and a software engineer with the focus on web applications and cloud
+                        architecture. I also like to immerse myself in the role of system administration, including
+                        networking and application scaling.</p>
                 </div>
             </div>
             <div class="col-md-2">
@@ -173,7 +191,8 @@
                                 </h2>
 
                                 <div class="video-container">
-                                    <iframe width="477" height="358" src="//www.youtube.com/embed/FgkGzeCMvro?rel=0" frameborder="0"
+                                    <iframe width="477" height="358" src="//www.youtube.com/embed/FgkGzeCMvro?rel=0"
+                                            frameborder="0"
                                             allowfullscreen></iframe>
                                 </div>
                                 <blockquote>
@@ -378,9 +397,26 @@
     <section id="about" data-speed="4" data-type="background">
         <div class="container">
             <div class="col-md-12 colored-box padding">
+                <h4>GitHub contributions</h4>
 
-                <p>You can find my public projects in GitHub: <a href="https://github.com/maksimluzik" target="_blank">https://github.com/maksimluzik</a></p>
-                <p> </p>
+                <!-- Prepare a container for your calendar. -->
+                <script src="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.min.js"></script>
+
+                <!-- Prepare a container for your calendar. -->
+                <div class="calendar" style="background-color:#fff;color:#999">
+                    <!-- Loading stuff -->
+                    Loading the data just for you.
+                </div>
+
+                <script>
+                    new GitHubCalendar(".calendar", "maksimluzik");
+                </script>
+
+                <p></p>
+
+                <p>You can find my public projects in GitHub: <a href="https://github.com/maksimluzik" target="_blank">https://github.com/maksimluzik</a>
+                </p>
+                <p></p>
                 <p>You can also save this page in your Facebook links for future reference:</p>
                 <div class="fb-save"
                      data-uri="http://www.maksimluzik.com">
@@ -458,77 +494,103 @@
                         <ul>
                             <li><a href="http://www.windows.com/" target="_blank"><img title="Windows" alt="Windows"
                                                                                        src="images/icons/windows.png"
-                                                                                       width="200" height="200"/></a></li>
+                                                                                       width="200" height="200"/></a>
+                            </li>
                             <li><a href="http://www.mac.com/" target="_blank"><img title="Mac OS X" alt="Mac OS X"
-                                                                                   src="images/icons/mac-osx.png" width="200"
+                                                                                   src="images/icons/mac-osx.png"
+                                                                                   width="200"
                                                                                    height="200"/></a></li>
 
                             <li><a href="http://jquery.com/" target="_blank"><img title="jQuery" alt="jQuery"
-                                                                                  src="images/icons/jquery.png" width="229"
+                                                                                  src="images/icons/jquery.png"
+                                                                                  width="229"
                                                                                   height="87"/></a></li>
                             <li><a href="http://www.ubuntu.com/" target="_blank"><img title="Ubuntu" alt="Ubuntu"
-                                                                                      src="images/icons/ubuntu.png" width="200"
+                                                                                      src="images/icons/ubuntu.png"
+                                                                                      width="200"
                                                                                       height="90"/></a></li>
-                            <li><a href="http://www.atlassian.com/software/jira" target="_blank"><img title="JIRA" alt="JIRA"
+                            <li><a href="http://www.atlassian.com/software/jira" target="_blank"><img title="JIRA"
+                                                                                                      alt="JIRA"
                                                                                                       src="images/icons/jira.png"
-                                                                                                      width="200" height="102"/></a>
+                                                                                                      width="200"
+                                                                                                      height="102"/></a>
                             </li>
                             <li><a href="http://dojotoolkit.org/" target="_blank"><img title="Dojo" alt="Dojo"
                                                                                        src="images/icons/dojo-toolkit.png"
-                                                                                       width="200" height="102"/></a></li>
-                            <li><a href="http://aws.amazon.com/" target="_blank"><img title="Amazon AWS" alt="Amazon AWS"
-                                                                                      src="images/icons/aws.png" width="250"
+                                                                                       width="200" height="102"/></a>
+                            </li>
+                            <li><a href="http://aws.amazon.com/" target="_blank"><img title="Amazon AWS"
+                                                                                      alt="Amazon AWS"
+                                                                                      src="images/icons/aws.png"
+                                                                                      width="250"
                                                                                       height="91"/></a></li>
                             <li><a href="http://www.java.com/" target="_blank"><img title="Java" alt="Java"
-                                                                                    src="images/icons/java.png" width="180"
+                                                                                    src="images/icons/java.png"
+                                                                                    width="180"
                                                                                     height="111"/></a></li>
                             <li><a href="http://www.apache.org/" target="_blank"><img title="Apache" alt="Apache"
-                                                                                      src="images/icons/apache.png" width="214"
+                                                                                      src="images/icons/apache.png"
+                                                                                      width="214"
                                                                                       height="140"/></a></li>
                             <li><a href="http://www.mysql.com/" target="_blank"><img title="MySQL" alt="MySQL"
-                                                                                     src="images/icons/mysql.png" width="221"
+                                                                                     src="images/icons/mysql.png"
+                                                                                     width="221"
                                                                                      height="130"/></a></li>
                             <li><a href="http://www.php.net/" target="_blank"><img title="PHP" alt="PHP"
-                                                                                   src="images/icons/php.png" width="200"
+                                                                                   src="images/icons/php.png"
+                                                                                   width="200"
                                                                                    height="106"/></a></li>
                             <li><a href="http://en.wikipedia.org/wiki/HTML" target="_blank"><img title="HTML" alt="HTML"
                                                                                                  src="images/icons/html-icon.png"
-                                                                                                 width="125" height="125"/></a>
+                                                                                                 width="125"
+                                                                                                 height="125"/></a>
                             </li>
-                            <li><a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank"><img title="JavaScript"
-                                                                                                       alt="JavaScript"
-                                                                                                       src="images/icons/javascript-icon.png"
-                                                                                                       width="125"
-                                                                                                       height="125"/></a></li>
-                            <li><a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank"><img title="CSS"
-                                                                                                                   alt="CSS"
-                                                                                                                   src="images/icons/css-icon.png"
-                                                                                                                   width="125"
-                                                                                                                   height="125"/></a>
+                            <li><a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank"><img
+                                    title="JavaScript"
+                                    alt="JavaScript"
+                                    src="images/icons/javascript-icon.png"
+                                    width="125"
+                                    height="125"/></a></li>
+                            <li><a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank"><img
+                                    title="CSS"
+                                    alt="CSS"
+                                    src="images/icons/css-icon.png"
+                                    width="125"
+                                    height="125"/></a>
                             </li>
                             <li><a href="http://framework.zend.com/" target="_blank"><img title="Zend Framework"
                                                                                           alt="Zend Framework"
                                                                                           src="images/icons/zend-framework.png"
-                                                                                          width="204" height="67"/></a></li>
-                            <li><a href="http://www.wordpress.com/" target="_blank"><img title="Wordpress" alt="Wordpress"
+                                                                                          width="204" height="67"/></a>
+                            </li>
+                            <li><a href="http://www.wordpress.com/" target="_blank"><img title="Wordpress"
+                                                                                         alt="Wordpress"
                                                                                          src="images/icons/wordpress.png"
-                                                                                         width="200" height="200"/></a></li>
+                                                                                         width="200" height="200"/></a>
+                            </li>
                             <li><a href="http://getbootstrap.com" target="_blank">Bootstrap</a></li>
                             <li><a href="http://www.google.com" target="_blank">Google</a></li>
                             <li><a href="http://git-scm.com/" target="_blank">Git</a></li>
                             <li><a href="http://subversion.apache.org/" target="_blank">SVN</a></li>
                             <!--<li><a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a></li>-->
-                            <li><a href="http://en.wikipedia.org/wiki/User-centered_design" target="_blank">User-centered design</a></li>
-                            <li><a href="http://en.wikipedia.org/wiki/Usability_testing" target="_blank">Usability testing</a>
+                            <li><a href="http://en.wikipedia.org/wiki/User-centered_design" target="_blank">User-centered
+                                design</a></li>
+                            <li><a href="http://en.wikipedia.org/wiki/Usability_testing" target="_blank">Usability
+                                testing</a>
                             </li>
-                            <li><a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank">A/B testing (split testing)</a></li>
-                            <li><a href="http://en.wikipedia.org/wiki/Network_administrator" target="_blank">Network administration</a></li>
+                            <li><a href="http://en.wikipedia.org/wiki/A/B_testing" target="_blank">A/B testing (split
+                                testing)</a></li>
+                            <li><a href="http://en.wikipedia.org/wiki/Network_administrator" target="_blank">Network
+                                administration</a></li>
                             <li><a href="http://en.wikipedia.org/wiki/Scrum_(software_development)" target="_blank">Scrum</a>
                             </li>
-                            <li><a href="http://en.wikipedia.org/wiki/Test-driven_development" target="_blank">Test-driven development</a></li>
-                            <li><a href="http://en.wikipedia.org/wiki/Affiliate_network" target="_blank">Affiliate networks</a>
+                            <li><a href="http://en.wikipedia.org/wiki/Test-driven_development" target="_blank">Test-driven
+                                development</a></li>
+                            <li><a href="http://en.wikipedia.org/wiki/Affiliate_network" target="_blank">Affiliate
+                                networks</a>
                             </li>
-                            <li><a href="http://en.wikipedia.org/wiki/Advertising_network" target="_blank">Advertising networks</a></li>
+                            <li><a href="http://en.wikipedia.org/wiki/Advertising_network" target="_blank">Advertising
+                                networks</a></li>
                         </ul>
                     </div>
                 </div>
@@ -549,52 +611,90 @@
                 <div class="row">
                     <div class="col-md-6 margin-between">
                         <div class="input-group contact-icons">
-                            <span class="input-group-addon input-group-static-width1 light-blue"><a href="mailto:maksim.luzik@gmail.com"><img src="images/icons/gmail.png" width="50" alt="Email" title="Email"/><p>Email</p></a></span>
-                            <span class="input-group-addon input-group-static-width2 gray"><a href="mailto:maksim.luzik@gmail.com">maksim.luzik@gmail.com</a></span>
+                            <span class="input-group-addon input-group-static-width1 light-blue"><a
+                                    href="mailto:maksim.luzik@gmail.com"><img src="images/icons/gmail.png" width="50"
+                                                                              alt="Email"
+                                                                              title="Email"/><p>Email</p></a></span>
+                            <span class="input-group-addon input-group-static-width2 gray"><a
+                                    href="mailto:maksim.luzik@gmail.com">maksim.luzik@gmail.com</a></span>
                         </div>
                         <div class="input-group contact-icons">
-                            <span class="input-group-addon input-group-static-width1 light-blue"><a href="https://fi.linkedin.com/in/maksimluzik" target="_blank"><img src="images/icons/linkedin.png" width="50" alt="LinkedIn" title="LinkedIn" /><p>LinkedIn</p></a></span>
-                            <span class="input-group-addon input-group-static-width2 gray"><a href="https://fi.linkedin.com/in/maksimluzik" target="_blank">https://fi.linkedin.com/in/maksimluzik</a></span>
+                            <span class="input-group-addon input-group-static-width1 light-blue"><a
+                                    href="https://fi.linkedin.com/in/maksimluzik" target="_blank"><img
+                                    src="images/icons/linkedin.png" width="50" alt="LinkedIn" title="LinkedIn"/><p>LinkedIn</p></a></span>
+                            <span class="input-group-addon input-group-static-width2 gray"><a
+                                    href="https://fi.linkedin.com/in/maksimluzik" target="_blank">https://fi.linkedin.com/in/maksimluzik</a></span>
                         </div>
                         <div class="input-group contact-icons">
-                            <span class="input-group-addon input-group-static-width1 light-blue"><a href="https://twitter.com/maksimluzik" target="_blank"><img src="images/icons/twitter.png" width="50" alt="Twitter" title="Twitter" /><p>Twitter</p></a></span>
-                            <span class="input-group-addon input-group-static-width2 gray"><a href="https://twitter.com/maksimluzik" target="_blank">https://twitter.com/maksimluzik</a></span>
+                            <span class="input-group-addon input-group-static-width1 light-blue"><a
+                                    href="https://twitter.com/maksimluzik" target="_blank"><img
+                                    src="images/icons/twitter.png" width="50" alt="Twitter"
+                                    title="Twitter"/><p>Twitter</p></a></span>
+                            <span class="input-group-addon input-group-static-width2 gray"><a
+                                    href="https://twitter.com/maksimluzik" target="_blank">https://twitter.com/maksimluzik</a></span>
                         </div>
                         <div class="input-group contact-icons">
-                            <span class="input-group-addon input-group-static-width1 light-blue"><a href="https://www.facebook.com/maksim.luzik" target="_blank"><img src="images/icons/facebook.png" width="50" alt="Facebook" title="Facebook" /><p>Facebook</p></a></span>
-                            <span class="input-group-addon input-group-static-width2 gray"><a href="https://www.facebook.com/maksim.luzik" target="_blank">https://www.facebook.com/maksim.luzik</a></span>
+                            <span class="input-group-addon input-group-static-width1 light-blue"><a
+                                    href="https://www.facebook.com/maksim.luzik" target="_blank"><img
+                                    src="images/icons/facebook.png" width="50" alt="Facebook" title="Facebook"/><p>Facebook</p></a></span>
+                            <span class="input-group-addon input-group-static-width2 gray"><a
+                                    href="https://www.facebook.com/maksim.luzik" target="_blank">https://www.facebook.com/maksim.luzik</a></span>
                         </div>
 
                         <div class="input-group contact-icons">
-                            <span class="input-group-addon input-group-static-width1 light-blue"><img src="images/icons/skype.png" width="50" alt="Skype" title="Skype" /><p>Skype</p></span>
+                            <span class="input-group-addon input-group-static-width1 light-blue"><img
+                                    src="images/icons/skype.png" width="50" alt="Skype"
+                                    title="Skype"/><p>Skype</p></span>
                             <span class="input-group-addon input-group-static-width2 gray">maximuz_</span>
                         </div>
 
                         <div class="input-group contact-icons">
-                            <span class="input-group-addon input-group-static-width1 light-blue"><a href="https://stackexchange.com/users/1509702/maksim-luzik?tab=accounts" target="_blank"><img src="images/icons/stackexchange.png" width="50" alt="Stack Exchange" title="Stack Exchange" /><p>Stack Exchange</p></a></span>
-                            <span class="input-group-addon input-group-static-width2 gray"><a href="https://stackexchange.com/users/1509702/maksim-luzik?tab=accounts" target="_blank">https://stackexchange.com/users/1509702/maksim-luzik?tab=accounts</a></span>
+                            <span class="input-group-addon input-group-static-width1 light-blue"><a
+                                    href="https://stackexchange.com/users/1509702/maksim-luzik?tab=accounts"
+                                    target="_blank"><img src="images/icons/stackexchange.png" width="50"
+                                                         alt="Stack Exchange"
+                                                         title="Stack Exchange"/><p>Stack Exchange</p></a></span>
+                            <span class="input-group-addon input-group-static-width2 gray"><a
+                                    href="https://stackexchange.com/users/1509702/maksim-luzik?tab=accounts"
+                                    target="_blank">https://stackexchange.com/users/1509702/maksim-luzik?tab=accounts</a></span>
                         </div>
                     </div>
                     <div class="col-md-6 margin-between">
                         <div class="input-group contact-icons">
-                            <span class="input-group-addon input-group-static-width1 light-blue"><a href="https://plus.google.com/+MaksimLuzik-mxmz" target="_blank"><img src="images/icons/google-plus.png" width="50" alt="Google+" alt="Google+" /><p>Google+</p></a></span>
-                            <span class="input-group-addon input-group-static-width2 gray"><a href="https://plus.google.com/+MaksimLuzik-mxmz" target="_blank">https://plus.google.com/+MaksimLuzik-mxmz</a></span>
+                            <span class="input-group-addon input-group-static-width1 light-blue"><a
+                                    href="https://plus.google.com/+MaksimLuzik-mxmz" target="_blank"><img
+                                    src="images/icons/google-plus.png" width="50" alt="Google+" alt="Google+"/><p>Google+</p></a></span>
+                            <span class="input-group-addon input-group-static-width2 gray"><a
+                                    href="https://plus.google.com/+MaksimLuzik-mxmz" target="_blank">https://plus.google.com/+MaksimLuzik-mxmz</a></span>
                         </div>
                         <div class="input-group contact-icons">
-                            <span class="input-group-addon input-group-static-width1 light-blue"><img src="images/icons/windows-live.png" width="50" alt="Windows LiveID" title="Windows LiveID" /><p>Windows LiveID</p></span>
+                            <span class="input-group-addon input-group-static-width1 light-blue"><img
+                                    src="images/icons/windows-live.png" width="50" alt="Windows LiveID"
+                                    title="Windows LiveID"/><p>Windows LiveID</p></span>
                             <span class="input-group-addon input-group-static-width2 gray">maximuz_@hotmail.com</span>
                         </div>
                         <div class="input-group contact-icons">
-                            <span class="input-group-addon input-group-static-width1 light-blue"><a href="https://www.youtube.com/user/Max1muz" target="_blank"><img src="images/icons/youtube.png" width="50" alt="YouTube" title="YouTube" /><p>YouTube+</p></a></span>
-                            <span class="input-group-addon input-group-static-width2 gray"><a href="https://www.youtube.com/user/Max1muz" target="_blank">https://www.youtube.com/user/Max1muz</a></span>
+                            <span class="input-group-addon input-group-static-width1 light-blue"><a
+                                    href="https://www.youtube.com/user/Max1muz" target="_blank"><img
+                                    src="images/icons/youtube.png" width="50" alt="YouTube"
+                                    title="YouTube"/><p>YouTube+</p></a></span>
+                            <span class="input-group-addon input-group-static-width2 gray"><a
+                                    href="https://www.youtube.com/user/Max1muz" target="_blank">https://www.youtube.com/user/Max1muz</a></span>
                         </div>
                         <div class="input-group contact-icons">
-                            <span class="input-group-addon input-group-static-width1 light-blue"><a href="http://steamcommunity.com/id/mxmz/" target="_blank"><img src="images/icons/steam.png" width="50" alt="Steam" title="Steam" /><p>Steam</p></a></span>
-                            <span class="input-group-addon input-group-static-width2 gray"><a href="http://steamcommunity.com/id/mxmz/" target="_blank">http://steamcommunity.com/id/mxmz/</a></span>
+                            <span class="input-group-addon input-group-static-width1 light-blue"><a
+                                    href="http://steamcommunity.com/id/mxmz/" target="_blank"><img
+                                    src="images/icons/steam.png" width="50" alt="Steam" title="Steam"/><p>Steam</p></a></span>
+                            <span class="input-group-addon input-group-static-width2 gray"><a
+                                    href="http://steamcommunity.com/id/mxmz/" target="_blank">http://steamcommunity.com/id/mxmz/</a></span>
                         </div>
                         <div class="input-group contact-icons">
-                            <span class="input-group-addon input-group-static-width1 light-blue"><a href="https://open.spotify.com/user/11171735895" target="_blank"><img src="images/icons/spotify.png" width="50" alt="Spotify" title="Spotify" /><p>Spotify</p></a></span>
-                            <span class="input-group-addon input-group-static-width2 gray"><a href="https://open.spotify.com/user/11171735895" target="_blank">https://open.spotify.com/user/11171735895</a></span>
+                            <span class="input-group-addon input-group-static-width1 light-blue"><a
+                                    href="https://open.spotify.com/user/11171735895" target="_blank"><img
+                                    src="images/icons/spotify.png" width="50" alt="Spotify"
+                                    title="Spotify"/><p>Spotify</p></a></span>
+                            <span class="input-group-addon input-group-static-width2 gray"><a
+                                    href="https://open.spotify.com/user/11171735895" target="_blank">https://open.spotify.com/user/11171735895</a></span>
                         </div>
                     </div>
                 </div>
