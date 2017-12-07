@@ -83,6 +83,10 @@ $colHover       : #ffe6d1; /*/
     background-color: #ffffff;
 }
 
+span.spacing {
+    display: block;
+    height: 20px;
+}
 
 #navigation {
     font-size: 0.89em;
