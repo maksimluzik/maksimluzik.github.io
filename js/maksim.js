@@ -3,12 +3,13 @@
  */
 // Define Mxmz object
 var Mxmz = Mxmz || function () {
-    };
+};
 
 Mxmz.prototype.setActiveSection = function (section) {
     $('div#navigation li a[href="/#home"]').parent().removeClass('active');
     $('div#navigation li a[href="/#about"]').parent().removeClass('active');
     $('div#navigation li a[href="/#contact"]').parent().removeClass('active');
+    $('div#navigation li a[href="/#social"]').parent().removeClass('active');
     console.log("setting section", section);
     switch (section) {
         case 'home':
@@ -19,6 +20,9 @@ Mxmz.prototype.setActiveSection = function (section) {
             break;
         case 'contact':
             $('div#navigation li a[href="/#contact"]').parent().addClass('active');
+            break;
+        case 'social':
+            $('div#navigation li a[href="/#social"]').parent().addClass('active');
             break;
         default:
             break;
@@ -33,11 +37,6 @@ Mxmz.prototype.updateCanvasSize = function () {
 
 // Create a Mxmz object
 var Maksim = new Mxmz();
-
-
-//        $('div#navigation li a').click(function(event) {
-//            setActiveSection(event.target.hash.substring(1));
-//        })
 
 // Add waypoints for the hash link navigation
 if (window.location.pathname == '/') {
@@ -54,6 +53,9 @@ if (window.location.pathname == '/') {
     $('section#contact').waypoint(function (direction) {
         Maksim.setActiveSection('contact');
     }, {offset: 250});
+    $('section#social').waypoint(function (direction) {
+        Maksim.setActiveSection('social');
+    }, {offset: 350});
 }
 
 $( document ).ready(function() {
