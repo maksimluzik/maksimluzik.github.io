@@ -9,7 +9,9 @@ In the project folder run:
 Addons/framework used  
 * bootstrap  
 * jquery  
-* jquery-waypoints  
+* jquery-waypoints
+* jquery.visible
+* jquery.tagcanvas  
 * less  
 * nodejs  
 * bower  
@@ -18,8 +20,8 @@ Addons/framework used
 * custom ease scrolling  
 
 Color palette used  
-* color1: #212A3F  
-* color2: #434F5B  
-* color3: #F2F2F2  
-* color4: #8AB839  
-* color5: #2E2E2E  
+* color1: `#212A3F`  
+* color2: `#434F5B`  
+* color3: `#F2F2F2`  
+* color4: `#8AB839`  
+* color5: `#2E2E2E`  
