@@ -88,6 +88,14 @@ span.spacing {
     height: 20px;
 }
 
+div.center {
+    text-align: center;
+}
+
+div.center div {
+    display: inline-block;
+}
+
 #navigation {
     font-size: 0.89em;
     text-transform: uppercase;
@@ -251,6 +259,15 @@ span.spacing {
     color: #ffffff;
 }
 
+#container #social-content div {
+    float: left;
+    margin: 25px;
+}
+
+twitterwidget.twitter-tweet.twitter-tweet-rendered {
+    width: auto !important;
+}
+
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: #ffffff;
@@ -329,6 +346,14 @@ span.spacing {
         font-size: 0.7em;
         min-width: 150px !important;
         text-align: left;
+    }
+
+    div.calendar {
+        width: 300px;
+    }
+
+    div.js-calendar-graph.is-graph-loading.graph-canvas.calendar-graph.height-full {
+        display: none !important;
     }
 }
 
