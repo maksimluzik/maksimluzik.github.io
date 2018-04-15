@@ -83,6 +83,11 @@ $colHover       : #ffe6d1; /*/
     background-color: #ffffff;
 }
 
+.clear {
+    float: none !important;
+    clear: both !important;;
+}
+
 span.spacing {
     display: block;
     height: 20px;
@@ -259,8 +264,12 @@ div.center div {
     color: #ffffff;
 }
 
-#container #social-content div {
+#container #social-content div.quora div {
     float: left;
+    margin: 25px;
+}
+
+#container #social-content div.wolt div {
     margin: 25px;
 }
 
