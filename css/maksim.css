@@ -97,6 +97,15 @@ div.center {
     text-align: center;
 }
 
+div.outer {
+    width: 100%;
+    text-align: center;
+}
+
+div.inner {
+    display: inline-block;
+}
+
 div.center div {
     display: inline-block;
 }
