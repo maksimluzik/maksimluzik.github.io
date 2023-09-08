@@ -1,20 +1,16 @@
-/* Red */
-/* Green * /
-$bgDefault      : #2ecc71;
-$bgHighlight    : #27ae60;
-$colDefault     : #ecf0f1;
-$colHover       : #d1ffed; /*/
-/* Purple * /
-$bgDefault      : #9b59b6;
-$bgHighlight    : #8e44ad;
-$colDefault     : #ecf0f1;
-$colHover       : #ecdbff; /*/
-/* Orange * /
-$bgDefault      : #e67e22;
-$bgHighlight    : #d35400;
-$colDefault     : #ecf0f1;
-$colHover       : #ffe6d1; /*/
 /* --- Style --- */
+html {
+    background: url('../images/tokyo-maksim.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    background-color: transparent;
+}
+
 .navbar-default {
     background-color: #212a3f;
     border-color: #434f5b;
@@ -36,6 +32,7 @@ $colHover       : #ffe6d1; /*/
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #434f5b;
+    background-color: #ffffff;
 }
 
 .navbar-default .navbar-nav .active > a,
@@ -129,7 +126,6 @@ div.center div {
     margin: 10px;
 }
 
-
 #container {
     /* Page sections */
     margin-top: 100px;
@@ -140,6 +136,7 @@ div.center div {
     border-radius: 5px;
     border: 1px solid #999999;
     color: #ffffff;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
 #container .input-group.contact-icons span {
@@ -164,7 +161,7 @@ div.center div {
 }
 
 #container .input-group-addon.gray {
-    background-color: #F2F2F2;
+    /* background-color: #F2F2F2; */
     color: #434F5B;
 }
 
@@ -214,76 +211,18 @@ div.center div {
 }
 
 #container .normal-text {
-    padding: 30px;
+    padding: 10px;
     font-size: 16px;
-    line-height: 35px;
+    line-height: 25px;
 }
 
 #container #home {
-    background: url('../images/tokyo-maksim.jpg') 50% 0 fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 100%;
-    min-height: 925px;
     margin: 0 auto;
     width: 100%;
     position: relative;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
     padding: 80px 0;
-}
-
-#container #about {
-    background: url('../images/bahamas-maksim.jpg') 50% 0 fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    min-height: 725px;
-    margin: 0 auto;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
-    padding: 80px 0;
-}
-
-#container #contact {
-    background: url('../images/mantyharju-maksim.jpg') 50% 0 fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    min-height: 925px;
-    margin: 0 auto;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
-    padding: 80px 0;
-    color: #ffffff;
-}
-
-#container #blog {
-    background: url('../images/koti-maksim.jpg') 50% 0 fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    min-height: 925px;
-    margin: 0 auto;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
-    padding: 80px 0;
-    color: #ffffff;
-}
-
-#container #social-content div.quora div {
-    float: left;
-    margin: 25px;
-}
-
-#container #social-content div.twitter div {
-    margin: 25px;
-}
-
-twitterwidget.twitter-tweet.twitter-tweet-rendered {
-    width: auto !important;
+    background-color: transparent;
 }
 
 @media (max-width: 767px) {
@@ -295,27 +234,6 @@ twitterwidget.twitter-tweet.twitter-tweet-rendered {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
         color: #f2f2f2;
         background-color: #434f5b;
-    }
-
-    #myCanvasContainer #myCanvas {
-        display: none;
-    }
-
-    #myCanvasContainer #tags {
-        display: block !important;
-        padding: 10px;
-    }
-
-    #myCanvasContainer #tags ul, #myCanvasContainer #tags ul li {
-        list-style: none;
-        padding-left: 0px;
-        margin-left: 0px;
-        margin-top: 5px;
-    }
-
-    #myCanvasContainer #tags img {
-        height: auto;
-        width: 100px;
     }
 
     #container .small-top-margin {

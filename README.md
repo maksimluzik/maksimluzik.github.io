@@ -8,16 +8,7 @@ In the project folder run:
 
 Addons/framework used  
 * bootstrap  
-* jquery  
-* jquery-waypoints
-* jquery.visible
-* jquery.tagcanvas  
-* less  
-* nodejs  
-* bower  
-* font-awesome  
-* custom timeline  
-* custom ease scrolling  
+* jquery
 
 Color palette used  
 * color1: `#212A3F`  
