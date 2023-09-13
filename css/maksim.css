@@ -9,6 +9,7 @@ html {
 
 body {
     background-color: transparent;
+    height: 100%;
 }
 
 .navbar-default {
@@ -225,7 +226,12 @@ div.center div {
     background-color: transparent;
 }
 
+/* Mobile phones */
 @media (max-width: 767px) {
+    .navbar-collapse {
+        min-height: 720px;
+    }
+
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: #ffffff;
     }
@@ -307,6 +313,7 @@ div.center div {
 
     #container .top-element {
         margin-top: 0px;
+
     }
 
     #navigation .navbar-collapse ul {
