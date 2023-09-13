@@ -1,85 +1,71 @@
 /**
- * Created by maksim on 02/12/15.
+ * Created by maksim on 02/12/15, updated on 13/09/23.
  */
-// Define Mxmz object
-var Mxmz = Mxmz || function () {
+// Define Maksim object
+var Maksim = Maksim || function (boolDebug) {
+    let debug = boolDebug;
+
+    this.isDebug = function() { return debug; }
 };
 
-Mxmz.prototype.setActiveSection = function (section) {
-    $('div#navigation li a[href="/#home"]').parent().removeClass('active');
-    $('div#navigation li a[href="/#about"]').parent().removeClass('active');
-    $('div#navigation li a[href="/#contact"]').parent().removeClass('active');
-    $('div#navigation li a[href="/#social"]').parent().removeClass('active');
-    console.log("setting section", section);
-    switch (section) {
-        case 'home':
-            $('div#navigation li a[href="/#home"]').parent().addClass('active');
-            break;
-        case 'about':
-            $('div#navigation li a[href="/#about"]').parent().addClass('active');
-            break;
-        case 'contact':
-            $('div#navigation li a[href="/#contact"]').parent().addClass('active');
-            break;
-        case 'social':
-            $('div#navigation li a[href="/#social"]').parent().addClass('active');
-            break;
-        default:
-            break;
+Maksim.prototype.log = function(text) {
+    if (this.isDebug()) {
+        console.log(text);
     }
 };
 
-Mxmz.prototype.updateCanvasSize = function () {
-    var canvasContainerWidth = $('#canvas-panel-container').width();
-    $('#myCanvas').css('width', canvasContainerWidth);
-    console.log("updateCanvasSize", canvasContainerWidth);
-};
+var M = new Maksim(false);
+M.log("Welcome to maksimluzik.com debug mode!");
 
-// Create a Mxmz object
-var Maksim = new Mxmz();
+// Replace 'YOUR_API_KEY' with your actual Google Sheets API key
+const apiKey = 'AIzaSyAm0ilG2HsLn78-hnGvwQuWX7gtdX1HiDE';
 
-// Add waypoints for the hash link navigation
-if (window.location.pathname == '/') {
-    $('div#navigation li a[href="/#home"]').parent().addClass('active');
+// ID of the Google Sheet document
+const spreadsheetId = '145LPgIHqxSHXc2M5saohs7hCZ5ryT6_IfqbOsbMjNSI';
 
-    $('section#home').waypoint(function (direction) {
-        Maksim.setActiveSection('home');
-    }, {offset: -10});
-    $('section#about').waypoint(function (direction) {
-        Maksim.setActiveSection('about');
-    }, {offset: 50}).waypoint(function (direction) {
-        Maksim.setActiveSection('about');
-    }, {offset: 150});
-    $('section#contact').waypoint(function (direction) {
-        Maksim.setActiveSection('contact');
-    }, {offset: 250});
-    $('section#social').waypoint(function (direction) {
-        Maksim.setActiveSection('social');
-    }, {offset: 350});
-}
+// Load the Google API client library and Google Sheets API
+gapi.load('client', () => {
+    gapi.client.init({
+        apiKey: apiKey,
+    }).then(() => {
+        // Load the Google Sheets API
+        return gapi.client.load('sheets', 'v4');
+    }).then(() => {
+        // Make an API request to get the values from the 'slogans' sheet
+        return gapi.client.sheets.spreadsheets.values.get({
+            spreadsheetId: spreadsheetId,
+            range: 'slogans',
+        });
+    }).then((response) => {
+        const values = response.result.values;
 
-$( document ).ready(function() {
-    // Handler for .ready() called.
-    Maksim.updateCanvasSize();
-});
+        if (values && values.length > 0) {
+            const data = [];
+            const headers = values[0];
 
-$( window ).resize(function() {
-    Maksim.updateCanvasSize();
-});
+            for (let i = 1; i < values.length; i++) {
+                const row = values[i];
+                const slogan = row[0]; // Column A
+                const author = row[1]; // Column B
+                data.push({ slogan, author });
+            }
 
-// Canvas initialization
-$(document).ready(function () {
-    if (!$('#myCanvas').tagcanvas({
-            textColour: '#434f5b',
-            outlineMethod: 'none',
-            shadow: '#c0c0c0',
-            shadowOffset: [1, 1],
-            reverse: true,
-            depth: 1.0,
-            maxSpeed: 0.05,
-            wheelZoom: false
-        }, 'tags')) {
-        // something went wrong, hide the canvas container
-        $('#myCanvasContainer').hide();
-    }
+            // Generate a random index within the array's bounds
+            const randomIndex = Math.floor(Math.random() * data.length);
+
+            // Get the random item from the array
+            const randomLine = data[randomIndex];
+            console.log("Slogan of the day:", randomLine);
+
+            M.log(data);
+            let sloganElement = document.getElementById('slogan');
+            let authorElement = document.getElementById('author');
+            sloganElement.textContent = JSON.stringify(randomLine.slogan, null, 2);
+            authorElement.textContent = JSON.stringify("- "+randomLine.author, null, 2).replace(/"/g, '');
+        } else {
+            console.log('No data found.');
+        }
+    }).catch((error) => {
+        console.error('Error:', error);
+    });
 });

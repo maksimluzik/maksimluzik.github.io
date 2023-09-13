@@ -14,6 +14,9 @@
     <script src="/js/jquery-2.1.3.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 
+    <!-- Include the Google API Client Library and Google Sheets API -->
+    <script src="https://apis.google.com/js/api.js"></script>
+
     <!-- Custom styles for this template -->
     <link href="/css/maksim.css" rel="stylesheet">
     <script src="/js/maksim.js"></script>
@@ -55,7 +58,7 @@
 </script>
 
 <!-- Content start here -->
-<div id="navigation" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav id="navigation" class="navbar navbar-default navbar-fixed-top navbar-expand-lg" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -83,16 +86,13 @@
         </div>
         <!--/.nav-collapse -->
     </div>
-</div>
-<nav id="main-nav">
-    
 </nav>
 
 <div id="container">
     <!-- Section 1 -->
     <section id="home" data-speed="6" data-type="background">
         <div class="container">
-            <div class="row">
+            
                 <!--
                 <div class="d-flex justify-content-md-center align-items-center vh-100">
                     <p>Maksim</p>
@@ -101,17 +101,17 @@
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-8 colored-box" style="text-align: center;">
-                    <div class="big-text">
+                    <div class="big-text" id="slogan">
                         <!-- Slogans -->
-                        “Dream big. Start small. But most of all, start.” ―Simon Sinek
+                        “Dream big. Start small. But most of all, start.”
                     </div>
-                    <div class="normal-text">
-                        <p>Generate another quote</p>
+                    <div class="normal-text" id="author">
+                        <p>―Simon Sinek</p>
                     </div>
                 </div>
                 <div class="col-md-2">
                 </div>
-            </div>
+            
         </div>
     </section>
 </div>
