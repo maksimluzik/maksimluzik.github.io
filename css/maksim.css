@@ -138,6 +138,7 @@ div.center div {
     border: 1px solid #999999;
     color: #ffffff;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    position: relative;
 }
 
 #container .input-group.contact-icons span {
@@ -215,6 +216,42 @@ div.center div {
     padding: 10px;
     font-size: 16px;
     line-height: 25px;
+}
+
+/* Refresh slogan button */
+.refresh-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: rgba(67, 79, 91, 0.85); /* matches palette */
+    color: #fff;
+    border: 1px solid #999;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+.refresh-btn:hover {
+    background: #212a3f;
+    transform: rotate(90deg);
+}
+.refresh-btn:active {
+    transform: rotate(180deg) scale(0.95);
+}
+.refresh-btn i {
+    font-size: 16px;
+}
+.refresh-btn.spinning i {
+    animation: spin 0.6s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 #container #home {
