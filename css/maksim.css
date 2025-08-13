@@ -178,10 +178,12 @@ div.center div {
         order: 1;
         font-size: 1.1rem;
         gap: 8px;
+        margin-left: 12px; /* breathing room from left edge */
     }
     #navigation .navbar-toggle {
         order: 2;
         margin-left: auto;
+        margin-right: 0px; /* match brand left margin */
         float: none; /* override bootstrap default */
     }
     #navigation .navbar-brand img {
@@ -209,6 +211,10 @@ div.center div {
     #navigation .navbar-brand {
         font-size: 0.98rem;
         gap: 6px;
+        margin-left: 10px; /* slightly tighter on very small screens */
+    }
+    #navigation .navbar-toggle {
+        margin-right: 10px; /* match brand left margin on xs */
     }
     #navigation .navbar-brand img {
         width: 32px;
@@ -361,7 +367,11 @@ div.center div {
 /* Mobile phones */
 @media (max-width: 767px) {
     .navbar-collapse {
-        min-height: 720px;
+        min-height: 0; /* let it shrink to content */
+    }
+    /* Ensure expanded collapse fits content without big empty area */
+    #navigation .navbar-collapse.collapse.in {
+        height: auto !important;
     }
 
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
