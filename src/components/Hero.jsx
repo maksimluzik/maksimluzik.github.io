@@ -23,7 +23,7 @@ export function Hero({ className = '' }) {
       >
         <div className="relative">
           <img
-            src="/images/maksim-mxmz.jpg"
+            src="/images/profile/maksim-mxmz.jpg"
             alt="Maksim Luzik"
             width={120}
             height={120}

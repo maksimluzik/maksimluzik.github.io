@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import TiltCard from './TiltCard';
+import AboutModal from './AboutModal';
 
 // Navigation items configuration
 const NAV_ITEMS = [
@@ -160,28 +162,49 @@ const sizeClasses = {
  * - Accessible keyboard navigation
  */
 export function BentoGrid({ className = '' }) {
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+
   return (
-    <motion.nav
-      className={`w-full max-w-5xl mx-auto px-4 ${className}`}
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      role="navigation"
-      aria-label="Main navigation"
-    >
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[140px]">
-        {NAV_ITEMS.map((item) => (
-          <BentoItem key={item.id} item={item} />
-        ))}
-      </div>
-    </motion.nav>
+    <>
+      <motion.nav
+        className={`w-full max-w-5xl mx-auto px-4 ${className}`}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[140px]">
+          {NAV_ITEMS.map((item) => (
+            <BentoItem 
+              key={item.id} 
+              item={item} 
+              onAboutClick={() => setIsAboutModalOpen(true)}
+            />
+          ))}
+        </div>
+      </motion.nav>
+      
+      <AboutModal 
+        isOpen={isAboutModalOpen} 
+        onClose={() => setIsAboutModalOpen(false)} 
+      />
+    </>
   );
 }
 
-function BentoItem({ item }) {
+function BentoItem({ item, onAboutClick }) {
   const { id, title, description, icon, href, size, gradient, accentColor, external } = item;
   
   const isLarge = size === 'large';
+  const isAbout = id === 'about';
+  
+  const handleClick = (e) => {
+    if (isAbout) {
+      e.preventDefault();
+      onAboutClick();
+    }
+  };
   
   return (
     <motion.div
@@ -196,6 +219,7 @@ function BentoItem({ item }) {
       >
         <a
           href={href}
+          onClick={handleClick}
           target={external ? '_blank' : undefined}
           rel={external ? 'noopener noreferrer' : undefined}
           className={`

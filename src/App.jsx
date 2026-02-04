@@ -1,38 +1,24 @@
 import { useState, useEffect, useCallback } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ParticleCanvas from './components/ParticleCanvas';
 import Hero from './components/Hero';
 import BentoGrid from './components/BentoGrid';
 import { CommandPalette, CommandPaletteButton } from './components/CommandPalette';
+import Policy from './components/Policy';
+import NotFound from './components/NotFound';
 
 /**
- * Main App Component
- * 
- * Orchestrates the sophisticated minimalist portfolio experience.
+ * Home Page Component
  */
-function App() {
-  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
-  
-  // Global keyboard shortcut for command palette (⌘K / Ctrl+K)
-  const handleKeyDown = useCallback((e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-      e.preventDefault();
-      setIsCommandPaletteOpen(prev => !prev);
-    }
-  }, []);
-  
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleKeyDown]);
-  
+function HomePage({ isCommandPaletteOpen, setIsCommandPaletteOpen }) {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <>
       {/* Background image */}
       <div 
         className="fixed inset-0 z-0"
         style={{
-          backgroundImage: 'url(/images/tokyo-maksim.jpg)',
+          backgroundImage: 'url(/images/backgrounds/tokyo-maksim.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -109,7 +95,49 @@ function App() {
       
       {/* Command Palette FAB */}
       <CommandPaletteButton onClick={() => setIsCommandPaletteOpen(true)} />
-    </div>
+    </>
+  );
+}
+
+/**
+ * Main App Component
+ * 
+ * Orchestrates the sophisticated minimalist portfolio experience with routing.
+ */
+function App() {
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  
+  // Global keyboard shortcut for command palette (⌘K / Ctrl+K)
+  const handleKeyDown = useCallback((e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      setIsCommandPaletteOpen(prev => !prev);
+    }
+  }, []);
+  
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
+  
+  return (
+    <Router>
+      <div className="relative min-h-screen overflow-x-hidden">
+        <Routes>
+          <Route 
+            path="/" 
+            element={
+              <HomePage 
+                isCommandPaletteOpen={isCommandPaletteOpen} 
+                setIsCommandPaletteOpen={setIsCommandPaletteOpen} 
+              />
+            } 
+          />
+          <Route path="/policy" element={<Policy />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
