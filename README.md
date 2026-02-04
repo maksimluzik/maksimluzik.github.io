@@ -65,3 +65,4 @@ images/
 ├── profile/          # Profile photos
 └── portfolio/        # Project screenshots
 ```
+
