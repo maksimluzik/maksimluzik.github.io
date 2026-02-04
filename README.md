@@ -1,54 +1,121 @@
-# maksimluzik.github.io
+# Maksim Luzik - Personal Portfolio
 
-Personal website of Maksim Luzik. Static site hosted on GitHub Pages with a responsive layout and dynamic slogans fetched from Google Sheets.
+A sophisticated minimalist personal website built with modern web technologies.
 
-Live: https://www.maksimluzik.com/
+## Architecture Overview
 
-## Features
-- Responsive header and navbar (logo + name on the left, hamburger on the right for mobile)
-- Clean mobile experience (proper spacing, no extra empty space in the expanded menu)
-- Slogan box with a refresh button that picks a random quote from Google Sheets
-- Consistent 404 page styled like the homepage
-- SEO/Open Graph tags and Google Tag Manager
+### Tech Stack
+- **Framework**: Vite + React 18
+- **Styling**: Tailwind CSS with custom design tokens
+- **Animations**: Framer Motion + Canvas API
+- **Performance**: Optimized for Core Web Vitals
 
-## Tech stack
-- Static HTML/CSS/JS
-- Bootstrap 3, jQuery 2.1.3
-- Font Awesome (local) for icons
-- Google API Client + Google Sheets API (read-only)
+### Particle System Design
 
-## Local development
-Prerequisite: Node.js (for a tiny local server)
+The particle system uses a high-performance Canvas API approach with several optimization techniques:
 
-1) Install a local static server (one-time):
-	- npm install -g http-server
-2) Start the site from the project root:
-	- http-server
-3) Open http://localhost:8080
+1. **Typed Arrays (Float32Array)**: Particle data is stored in contiguous memory using Structure of Arrays (SoA) pattern to minimize garbage collection and improve cache efficiency.
 
-Notes
-- The site uses absolute paths (/css, /js, /images), so serve from the repo root.
-- The Google Sheets API calls are client-side and work locally over http.
+2. **Single Draw Call**: All particles are rendered in a single animation frame using batch rendering, avoiding the overhead of individual DOM updates.
 
-## Dynamic slogans
-- Source: Google Sheet defined in `js/maksim.js`
-  - spreadsheetId: configured in the file
-  - range: `slogans`
-  - Expected format: first row is headers; Column A = slogan, Column B = author
-- At load, the app fetches all rows and displays a random one; clicking the refresh icon picks another at random from the cached list.
+3. **Delta-Time Scaling**: Animation is frame-rate independent, ensuring consistent behavior across 30fps, 60fps, and 120fps displays.
 
-To point to a different sheet
-1) Update `spreadsheetId` in `js/maksim.js`
-2) Ensure the sheet/tab is named `slogans` with the format above (or update the `range` accordingly)
-3) If you rotate the API key, update `apiKey` in the same file (keep it restricted)
+4. **Mouse Event Throttling**: Mouse movements are throttled to ~60fps to reduce event processing overhead without affecting perceived smoothness.
 
-## Color palette
-- color1: `#212A3F`
-- color2: `#434F5B`
-- color3: `#F2F2F2`
-- color4: `#8AB839`
-- color5: `#2E2E2E`
+5. **Adaptive Particle Count**: Automatically detects device capability (mobile vs desktop) and adjusts particle count accordingly.
 
-## Deployment
-- Pushing to `master` publishes via GitHub Pages for this repo
-- Custom domain is configured via `CNAME`
+6. **Object Pooling**: Particles are recycled from a fixed pool to avoid allocations during animation.
+
+### Navigation Concepts
+
+#### Interactive Bento Grid
+A CSS Grid-based layout with variable-sized cards representing different sections:
+- Uses Framer Motion for smooth enter/exit animations
+- 3D tilt effect on hover using transform matrix calculations
+- Glassmorphism effects with backdrop-filter
+- Full keyboard navigation support
+
+#### Command Palette
+A spotlight-style fuzzy search interface:
+- Triggered with ⌘K / Ctrl+K
+- Fuzzy search across labels, categories, and keywords
+- Full keyboard navigation (↑↓ Enter Escape)
+- ARIA-compliant for screen readers
+
+## Performance Optimizations
+
+### Core Web Vitals
+
+1. **LCP (Largest Contentful Paint)**:
+   - Font preloading with `display=swap`
+   - Critical CSS inlined
+   - Hero image with `loading="eager"`
+
+2. **CLS (Cumulative Layout Shift)**:
+   - Fixed dimensions on images
+   - Font fallback matching
+   - Skeleton states for dynamic content
+
+3. **FID/INP (First Input Delay / Interaction to Next Paint)**:
+   - Event handlers use `passive: true` where applicable
+   - Heavy computations moved to requestAnimationFrame
+   - React 18 automatic batching
+
+### Bundle Optimization
+- Code splitting for vendor and motion libraries
+- Tree-shaking enabled
+- CSS code splitting
+- Terser minification with console stripping
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── ParticleCanvas.jsx    # Canvas particle system
+│   ├── TiltCard.jsx          # 3D tilt card component
+│   ├── BentoGrid.jsx         # Bento navigation grid
+│   ├── Hero.jsx              # Hero section
+│   ├── CommandPalette.jsx    # Spotlight search
+│   └── index.js              # Component exports
+├── hooks/
+│   └── useParticleSystem.js  # Particle physics hook
+├── App.jsx                   # Main app component
+├── main.jsx                  # React entry point
+└── index.css                 # Tailwind + custom styles
+```
+
+## Accessibility (A11y)
+
+- Full keyboard navigation support
+- ARIA labels and roles on interactive elements
+- Focus indicators for keyboard users
+- Reduced motion support (prefers-reduced-motion)
+- Screen reader compatible command palette
+
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## License
+
+MIT License - Maksim Luzik
