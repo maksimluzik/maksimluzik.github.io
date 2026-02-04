@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import TiltCard from './TiltCard';
 import AboutModal from './AboutModal';
+import YouTubeModal from './YouTubeModal';
 
 // Navigation items configuration
 const NAV_ITEMS = [
@@ -118,6 +119,17 @@ const NAV_ITEMS = [
     accentColor: 'rgba(245, 158, 11, 0.4)',
     external: true,
   },
+  {
+    id: 'ai-video',
+    title: 'YouTube Video',
+    description: 'AI demonstration with Veo',
+    icon: null,
+    href: '#',
+    size: 'large',
+    gradient: 'from-red-600/20 to-pink-600/20',
+    accentColor: 'rgba(220, 38, 38, 0.4)',
+    youtubeId: '4ZsIwjIPOu0',
+  },
 ];
 
 // Animation variants
@@ -163,6 +175,7 @@ const sizeClasses = {
  */
 export function BentoGrid({ className = '' }) {
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+  const [youtubeModalData, setYoutubeModalData] = useState(null);
 
   return (
     <>
@@ -180,6 +193,7 @@ export function BentoGrid({ className = '' }) {
               key={item.id} 
               item={item} 
               onAboutClick={() => setIsAboutModalOpen(true)}
+              onYouTubeClick={(videoId, title) => setYoutubeModalData({ videoId, title })}
             />
           ))}
         </div>
@@ -189,20 +203,31 @@ export function BentoGrid({ className = '' }) {
         isOpen={isAboutModalOpen} 
         onClose={() => setIsAboutModalOpen(false)} 
       />
+      
+      <YouTubeModal
+        isOpen={!!youtubeModalData}
+        onClose={() => setYoutubeModalData(null)}
+        videoId={youtubeModalData?.videoId}
+        title={youtubeModalData?.title}
+      />
     </>
   );
 }
 
-function BentoItem({ item, onAboutClick }) {
-  const { id, title, description, icon, href, size, gradient, accentColor, external } = item;
+function BentoItem({ item, onAboutClick, onYouTubeClick }) {
+  const { id, title, description, icon, href, size, gradient, accentColor, external, youtubeId } = item;
   
   const isLarge = size === 'large';
   const isAbout = id === 'about';
+  const hasYouTube = !!youtubeId;
   
   const handleClick = (e) => {
     if (isAbout) {
       e.preventDefault();
       onAboutClick();
+    } else if (hasYouTube) {
+      e.preventDefault();
+      onYouTubeClick(youtubeId, title);
     }
   };
   
@@ -228,42 +253,60 @@ function BentoItem({ item, onAboutClick }) {
             bg-gradient-to-br ${gradient}
             transition-all duration-300
             focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-950
+            ${hasYouTube ? 'overflow-hidden' : ''}
           `}
           aria-label={`${title}: ${description}`}
         >
-          {/* Icon */}
-          <div className={`
-            flex items-center justify-center
-            ${isLarge ? 'w-16 h-16 text-4xl' : 'w-12 h-12 text-2xl'}
-            mb-3 rounded-xl
-            bg-white/5 backdrop-blur-sm
-            group-hover:bg-white/10 transition-colors duration-300
-            ${typeof icon !== 'string' ? 'text-white/80' : ''}
-          `}>
-            {icon}
-          </div>
-          
-          {/* Content */}
-          <div className="flex-1 flex flex-col justify-end">
-            <h2 className={`
-              font-semibold text-white
-              ${isLarge ? 'text-2xl md:text-3xl' : 'text-xl'}
-              mb-1
-            `}>
-              {title}
-            </h2>
-            
-            {isLarge && (
-              <p className={`
-                text-dark-300 leading-relaxed text-base
-              `}>
+          {/* YouTube Logo Tile */}
+          {hasYouTube ? (
+            <div className="flex flex-col items-center justify-center h-full text-center">
+              <svg className="w-20 h-20 mb-4 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              <h2 className="text-2xl md:text-3xl font-semibold text-white mb-2">
+                {title}
+              </h2>
+              <p className="text-dark-300 text-base">
                 {description}
               </p>
-            )}
-          </div>
+            </div>
+          ) : (
+            <>
+              {/* Icon */}
+              <div className={`
+                flex items-center justify-center
+                ${isLarge ? 'w-16 h-16 text-4xl' : 'w-12 h-12 text-2xl'}
+                mb-3 rounded-xl
+                bg-white/5 backdrop-blur-sm
+                group-hover:bg-white/10 transition-colors duration-300
+                ${typeof icon !== 'string' ? 'text-white/80' : ''}
+              `}>
+                {icon}
+              </div>
+              
+              {/* Content */}
+              <div className="flex-1 flex flex-col justify-end">
+                <h2 className={`
+                  font-semibold text-white
+                  ${isLarge ? 'text-2xl md:text-3xl' : 'text-xl'}
+                  mb-1
+                `}>
+                  {title}
+                </h2>
+                
+                {isLarge && (
+                  <p className={`
+                    text-dark-300 leading-relaxed text-base
+                  `}>
+                    {description}
+                  </p>
+                )}
+              </div>
+            </>
+          )}
           
           {/* External link indicator */}
-          {external && (
+          {external && !hasYouTube && (
             <div className="absolute top-4 right-4 text-dark-400 group-hover:text-white/60 transition-colors">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
