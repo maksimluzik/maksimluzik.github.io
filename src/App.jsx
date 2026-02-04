@@ -5,6 +5,8 @@ import ParticleCanvas from './components/ParticleCanvas';
 import Hero from './components/Hero';
 import BentoGrid from './components/BentoGrid';
 import { CommandPalette, CommandPaletteButton } from './components/CommandPalette';
+import AboutModal from './components/AboutModal';
+import YouTubeModal from './components/YouTubeModal';
 import Policy from './components/Policy';
 import NotFound from './components/NotFound';
 
@@ -12,6 +14,9 @@ import NotFound from './components/NotFound';
  * Home Page Component
  */
 function HomePage({ isCommandPaletteOpen, setIsCommandPaletteOpen }) {
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+  const [youtubeModalData, setYoutubeModalData] = useState(null);
+
   return (
     <>
       {/* Background image */}
@@ -87,10 +92,31 @@ function HomePage({ isCommandPaletteOpen, setIsCommandPaletteOpen }) {
         </div>
       </footer>
       
+      {/* Modals */}
+      <AboutModal 
+        isOpen={isAboutModalOpen} 
+        onClose={() => setIsAboutModalOpen(false)} 
+      />
+      
+      <YouTubeModal
+        isOpen={!!youtubeModalData}
+        onClose={() => setYoutubeModalData(null)}
+        videoId={youtubeModalData?.videoId}
+        title={youtubeModalData?.title}
+      />
+      
       {/* Command Palette */}
       <CommandPalette 
         isOpen={isCommandPaletteOpen} 
-        onClose={() => setIsCommandPaletteOpen(false)} 
+        onClose={() => setIsCommandPaletteOpen(false)}
+        onAboutClick={() => {
+          setIsAboutModalOpen(true);
+          setIsCommandPaletteOpen(false);
+        }}
+        onYouTubeClick={(videoId, title) => {
+          setYoutubeModalData({ videoId, title });
+          setIsCommandPaletteOpen(false);
+        }}
       />
       
       {/* Command Palette FAB */}

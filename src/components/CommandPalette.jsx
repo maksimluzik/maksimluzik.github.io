@@ -1,25 +1,20 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Command items configuration
-const COMMANDS = [
-  { id: 'about', label: 'About Me', category: 'Navigation', action: () => scrollToSection('about'), keywords: ['profile', 'bio', 'who'] },
-  { id: 'company', label: 'View Company', category: 'Navigation', action: () => window.open('https://mxm-consulting.fi', '_blank'), keywords: ['work', 'portfolio', 'projects', 'consulting'] },
-  { id: 'stackexchange', label: 'StackExchange Profile', category: 'Navigation', action: () => window.open('https://stackexchange.com/users/1509702/maksim-luzik?tab=accounts', '_blank'), keywords: ['qa', 'questions', 'answers', 'code'] },
-  { id: 'capitol-conquest', label: 'Capitol Conquest Game', category: 'Projects', action: () => window.open('https://cc.maksimluzik.com', '_blank'), keywords: ['game', 'strategy', 'play', 'gaming'] },
-  { id: 'co-split', label: 'Co-Split App', category: 'Projects', action: () => window.open('https://co-split.maksimluzik.com', '_blank'), keywords: ['share', 'services', 'split', 'subscription'] },
-  { id: 'contact-email', label: 'Send Email', category: 'Contact', action: () => window.location.href = 'mailto:me@maksimluzik.com', keywords: ['email', 'mail', 'message'] },
-  { id: 'linkedin', label: 'Open LinkedIn', category: 'Social', action: () => window.open('https://fi.linkedin.com/in/maksimluzik', '_blank'), keywords: ['professional', 'network'] },
-  { id: 'github', label: 'Open GitHub', category: 'Social', action: () => window.open('https://github.com/maksimluzik', '_blank'), keywords: ['code', 'repos', 'open source'] },
-  { id: 'twitter', label: 'Open Twitter/X', category: 'Social', action: () => window.open('https://twitter.com/maksimluzik', '_blank'), keywords: ['x', 'tweets'] },
-];
-
-// Helper function for smooth scrolling
-function scrollToSection(id) {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
+// Command items configuration - will be built dynamically
+function buildCommands(onAboutClick, onYouTubeClick) {
+  return [
+    { id: 'about', label: 'About Me', category: 'Navigation', action: () => onAboutClick?.(), keywords: ['profile', 'bio', 'who'] },
+    { id: 'ai-video', label: 'AI Video', category: 'Projects', action: () => onYouTubeClick?.('4ZsIwjIPOu0', 'AI Video'), keywords: ['youtube', 'video', 'ai', 'watch'] },
+    { id: 'company', label: 'View Company', category: 'Navigation', action: () => window.open('https://mxm-consulting.fi', '_blank'), keywords: ['work', 'portfolio', 'projects', 'consulting'] },
+    { id: 'stackexchange', label: 'StackExchange Profile', category: 'Navigation', action: () => window.open('https://stackexchange.com/users/1509702/maksim-luzik?tab=accounts', '_blank'), keywords: ['qa', 'questions', 'answers', 'code'] },
+    { id: 'capitol-conquest', label: 'Capitol Conquest Game', category: 'Projects', action: () => window.open('https://cc.maksimluzik.com', '_blank'), keywords: ['game', 'strategy', 'play', 'gaming'] },
+    { id: 'co-split', label: 'Co-Split App', category: 'Projects', action: () => window.open('https://co-split.maksimluzik.com', '_blank'), keywords: ['share', 'services', 'split', 'subscription'] },
+    { id: 'contact-email', label: 'Send Email', category: 'Contact', action: () => window.location.href = 'mailto:me@maksimluzik.com', keywords: ['email', 'mail', 'message'] },
+    { id: 'linkedin', label: 'Open LinkedIn', category: 'Social', action: () => window.open('https://fi.linkedin.com/in/maksimluzik', '_blank'), keywords: ['professional', 'network'] },
+    { id: 'github', label: 'Open GitHub', category: 'Social', action: () => window.open('https://github.com/maksimluzik', '_blank'), keywords: ['code', 'repos', 'open source'] },
+    { id: 'twitter', label: 'Open Twitter/X', category: 'Social', action: () => window.open('https://twitter.com/maksimluzik', '_blank'), keywords: ['x', 'tweets'] },
+  ];
 }
 
 // Fuzzy search implementation
@@ -66,14 +61,17 @@ function fuzzySearch(query, items) {
  * A spotlight-style command palette for keyboard-first navigation.
  * Inspired by VS Code, Raycast, and Alfred.
  */
-export function CommandPalette({ isOpen, onClose }) {
+export function CommandPalette({ isOpen, onClose, onAboutClick, onYouTubeClick }) {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef(null);
   const listRef = useRef(null);
   
+  // Build commands with callbacks
+  const COMMANDS = useMemo(() => buildCommands(onAboutClick, onYouTubeClick), [onAboutClick, onYouTubeClick]);
+  
   // Filter commands based on query
-  const filteredCommands = useMemo(() => fuzzySearch(query, COMMANDS), [query]);
+  const filteredCommands = useMemo(() => fuzzySearch(query, COMMANDS), [query, COMMANDS]);
   
   // Group commands by category
   const groupedCommands = useMemo(() => {
