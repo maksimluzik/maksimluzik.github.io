@@ -7,6 +7,7 @@ import BentoGrid from './components/BentoGrid';
 import { CommandPalette, CommandPaletteButton } from './components/CommandPalette';
 import AboutModal from './components/AboutModal';
 import YouTubeModal from './components/YouTubeModal';
+import SEO from './components/SEO';
 import Policy from './components/Policy';
 import NotFound from './components/NotFound';
 
@@ -19,6 +20,9 @@ function HomePage({ isCommandPaletteOpen, setIsCommandPaletteOpen }) {
 
   return (
     <>
+      {/* SEO Component */}
+      <SEO />
+      
       {/* Background image */}
       <div 
         className="fixed inset-0 z-0"

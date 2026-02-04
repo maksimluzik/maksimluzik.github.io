@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.maksimluzik.com/</loc>
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.maksimluzik.com/images/profile/maksim_profile.png</image:loc>
+      <image:title>Maksim Luzik - Technical Consultant</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.maksimluzik.com/images/backgrounds/tokyo-maksim.jpg</image:loc>
+      <image:title>Tokyo Background</image:title>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/4ZsIwjIPOu0/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>AI Video by Maksim Luzik</video:title>
+      <video:description>AI-created video project</video:description>
+      <video:content_loc>https://youtu.be/4ZsIwjIPOu0</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/4ZsIwjIPOu0</video:player_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://www.maksimluzik.com/policy</loc>
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- External Projects (for context) -->
+  <url>
+    <loc>https://mxm-consulting.fi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://cc.maksimluzik.com</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://co-split.maksimluzik.com</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>

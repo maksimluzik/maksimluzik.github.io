@@ -6,3 +6,4 @@ export { CommandPalette, CommandPaletteButton } from './CommandPalette';
 export { QuoteDisplay } from './QuoteDisplay';
 export { AboutModal } from './AboutModal';
 export { YouTubeModal } from './YouTubeModal';
+export { SEO } from './SEO';
