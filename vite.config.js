@@ -18,15 +18,6 @@ export default defineConfig({
         },
       },
     },
-    // Enable CSS code splitting
-    cssCodeSplit: true,
-    // Minify for production
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-      },
-    },
   },
   // Development server config
   server: {
