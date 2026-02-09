@@ -8,8 +8,8 @@ import { useLocation } from 'react-router-dom';
  * Improves SEO for single-page applications.
  */
 export function SEO({ 
-  title = "Maksim Luzik | Technical Consultant & Startup Specialist",
-  description = "Technical Consultant and Startup Specialist. Where engineering meets business intuition. Specializing in AI, technology consulting, and innovative solutions.",
+  title = "Maksim Luzik | Technical Consultant & Strategic Advisor",
+  description = "Technical Consultant and Strategic Advisor. Where engineering meets business intuition. Specializing in AI, technology consulting, and innovative solutions.",
   image = "https://www.maksimluzik.com/images/profile/maksim_profile.png",
   type = "website"
 }) {

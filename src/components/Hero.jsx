@@ -52,8 +52,8 @@ export function Hero({ className = '' }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.5 }}
       >
-        Techical Consultant & Startup Specialist
-        <br className="hidden md:block" />
+        Technical Consultant & Strategic Advisor
+        <br />
         <span className="text-dark-400">Where engineering meets business intuition</span>
       </motion.p>
       
