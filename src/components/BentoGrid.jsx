@@ -130,6 +130,17 @@ const NAV_ITEMS = [
     accentColor: 'rgba(220, 38, 38, 0.4)',
     youtubeId: '4ZsIwjIPOu0',
   },
+  {
+    id: 'knowu',
+    title: 'KnowU',
+    description: 'Personal growth through self-assessment',
+    icon: '🧠',
+    href: 'https://knowu.app',
+    size: 'large',
+    gradient: 'from-emerald-500/20 to-green-500/20',
+    accentColor: 'rgba(16, 185, 129, 0.4)',
+    external: true,
+  },
 ];
 
 // Animation variants
