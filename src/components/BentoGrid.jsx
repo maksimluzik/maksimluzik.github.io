@@ -68,6 +68,39 @@ const NAV_ITEMS = [
     external: true,
   },
   {
+    id: 'knowu',
+    title: 'KnowU',
+    description: 'Personal growth through self-assessment',
+    icon: '🧠',
+    href: 'https://knowu.app',
+    size: 'large',
+    gradient: 'from-emerald-500/20 to-green-500/20',
+    accentColor: 'rgba(16, 185, 129, 0.4)',
+    external: true,
+  },
+  {
+    id: 'ai-video',
+    title: 'YouTube Video',
+    description: 'AI demonstration with Veo',
+    icon: null,
+    href: '#',
+    size: 'large',
+    gradient: 'from-red-600/20 to-pink-600/20',
+    accentColor: 'rgba(220, 38, 38, 0.4)',
+    youtubeId: '4ZsIwjIPOu0',
+  },
+  {
+    id: 'vertigo',
+    title: 'Demo music track',
+    description: '',
+    icon: '🎵',
+    href: '#',
+    size: 'large',
+    gradient: 'from-violet-500/20 to-purple-500/20',
+    accentColor: 'rgba(168, 85, 247, 0.4)',
+    youtubeId: 'TqBjVzs4oTM',
+  },
+  {
     id: 'github',
     title: 'GitHub',
     description: 'Open source',
@@ -117,28 +150,6 @@ const NAV_ITEMS = [
     size: 'regular',
     gradient: 'from-amber-500/20 to-yellow-500/20',
     accentColor: 'rgba(245, 158, 11, 0.4)',
-    external: true,
-  },
-  {
-    id: 'ai-video',
-    title: 'YouTube Video',
-    description: 'AI demonstration with Veo',
-    icon: null,
-    href: '#',
-    size: 'large',
-    gradient: 'from-red-600/20 to-pink-600/20',
-    accentColor: 'rgba(220, 38, 38, 0.4)',
-    youtubeId: '4ZsIwjIPOu0',
-  },
-  {
-    id: 'knowu',
-    title: 'KnowU',
-    description: 'Personal growth through self-assessment',
-    icon: '🧠',
-    href: 'https://knowu.app',
-    size: 'large',
-    gradient: 'from-emerald-500/20 to-green-500/20',
-    accentColor: 'rgba(16, 185, 129, 0.4)',
     external: true,
   },
 ];
@@ -231,6 +242,7 @@ function BentoItem({ item, onAboutClick, onYouTubeClick }) {
   const isLarge = size === 'large';
   const isAbout = id === 'about';
   const hasYouTube = !!youtubeId;
+  const isYouTubeHero = hasYouTube && !icon;
   
   const handleClick = (e) => {
     if (isAbout) {
@@ -264,12 +276,12 @@ function BentoItem({ item, onAboutClick, onYouTubeClick }) {
             bg-gradient-to-br ${gradient}
             transition-all duration-300
             focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-950
-            ${hasYouTube ? 'overflow-hidden' : ''}
+            ${isYouTubeHero ? 'overflow-hidden' : ''}
           `}
-          aria-label={`${title}: ${description}`}
+          aria-label={description ? `${title}: ${description}` : title}
         >
-          {/* YouTube Logo Tile */}
-          {hasYouTube ? (
+          {/* YouTube Hero Tile (Original style for AI Video) */}
+          {isYouTubeHero ? (
             <div className="flex flex-col items-center justify-center h-full text-center">
               <svg className="w-20 h-20 mb-4 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -300,15 +312,13 @@ function BentoItem({ item, onAboutClick, onYouTubeClick }) {
                 <h2 className={`
                   font-semibold text-white
                   ${isLarge ? 'text-2xl md:text-3xl' : 'text-xl'}
-                  mb-1
+                  ${description ? 'mb-1' : ''}
                 `}>
                   {title}
                 </h2>
                 
-                {isLarge && (
-                  <p className={`
-                    text-dark-300 leading-relaxed text-base
-                  `}>
+                {isLarge && description && (
+                  <p className="text-dark-300 leading-relaxed text-base">
                     {description}
                   </p>
                 )}

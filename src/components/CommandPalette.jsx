@@ -6,6 +6,8 @@ function buildCommands(onAboutClick, onYouTubeClick) {
   return [
     { id: 'about', label: 'About Me', category: 'Navigation', action: () => onAboutClick?.(), keywords: ['profile', 'bio', 'who'] },
     { id: 'ai-video', label: 'AI Video', category: 'Projects', action: () => onYouTubeClick?.('4ZsIwjIPOu0', 'AI Video'), keywords: ['youtube', 'video', 'ai', 'watch'] },
+    { id: 'music-track', label: 'Demo Music Track', category: 'Projects', action: () => onYouTubeClick?.('TqBjVzs4oTM', 'Demo music track'), keywords: ['music', 'song', 'demo', 'audio', 'track', 'youtube', 'listen', 'vertigo'] },
+    { id: 'knowu', label: 'KnowU App', category: 'Projects', action: () => window.open('https://knowu.app', '_blank'), keywords: ['knowu', 'self-assessment', 'growth', 'app', 'psychology'] },
     { id: 'company', label: 'View Company', category: 'Navigation', action: () => window.open('https://mxm-consulting.fi', '_blank'), keywords: ['work', 'portfolio', 'projects', 'consulting'] },
     { id: 'stackexchange', label: 'StackExchange Profile', category: 'Navigation', action: () => window.open('https://stackexchange.com/users/1509702/maksim-luzik?tab=accounts', '_blank'), keywords: ['qa', 'questions', 'answers', 'code'] },
     { id: 'capitol-conquest', label: 'Capitol Conquest Game', category: 'Projects', action: () => window.open('https://cc.maksimluzik.com', '_blank'), keywords: ['game', 'strategy', 'play', 'gaming'] },
