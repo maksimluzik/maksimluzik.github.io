@@ -21,7 +21,7 @@ export default defineConfig({
   },
   // Development server config
   server: {
-    port: 8080,
+    port: 8000,
     open: true,
     // Serve images folder as static assets
     fs: {

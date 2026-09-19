@@ -27,7 +27,7 @@ A sophisticated minimalist personal website built with modern web technologies.
 # Install dependencies
 npm install
 
-# Start dev server (http://localhost:8080)
+# Start dev server (http://localhost:8000)
 npm run dev
 
 # Build for production
